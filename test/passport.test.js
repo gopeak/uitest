@@ -43,6 +43,16 @@ describe('首页', () => {
         await page.goto(routes.public.index)
         await page.waitForSelector('#new_user')
     })
+
+    test('注册', async () => {
+        await page.goto(routes.public.index)
+        await page.click('#li-register');
+        await page.waitForSelector('#new_new_user')
+        await page.waitForSelector('#register_submit_btn')
+        let display = await page.$eval('#new_new_user', el => el.innerHTML);
+        expect(display).toMatch('register_submit_btn');
+    })
+
 })
 
 describe('入口', () => {
@@ -51,7 +61,7 @@ describe('入口', () => {
         const submit_btn = '#login_submit_btn';
         await page.waitForSelector(submit_btn);
         await page.type('#user_login', 'master');
-        await page.type('#user_password', '123456');
+        await page.type('#user_password', 'testtest');
         await page.click(submit_btn);
         await page.waitForSelector('.extra-item-num');
     })
