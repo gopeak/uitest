@@ -1,0 +1,6 @@
+
+yarn add --dev jest
+yarn add --dev faker
+yarn add --dev puppeteer
+
+yarn add --dev babel-jest @babel/core @babel/preset-env
