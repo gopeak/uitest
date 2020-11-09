@@ -29,6 +29,7 @@ const user = {
     companyName: faker.company.companyName(),
 }
 
+
 let browser
 let page
 beforeAll(async () => {
