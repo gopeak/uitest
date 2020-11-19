@@ -51,7 +51,7 @@ describe('入口', () => {
         const submit_btn = '#login_submit_btn';
         await page.waitForSelector(submit_btn);
         await page.type('#user_login', 'master');
-        await page.type('#user_password', '123456');
+        await page.type('#user_password', 'testtest');
         await page.click(submit_btn);
         await page.waitForSelector('.extra-item-num');
     })
