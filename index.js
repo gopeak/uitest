@@ -1,18 +1,16 @@
-
-
-'use strict';
-
 const puppeteer = require('puppeteer');
+import $config from './test/config/index';
+import $browser from '../config/browser';
 
 (async () => {
-    const browser = await puppeteer.launch({headless: false,defaultViewport:{width :1440,height:900}});
+    const browser = await puppeteer.launch($browser);
     const page = await browser.newPage();
 
     await page.goto('http://masterlab.ink');
 
     // Type into search box.
-    await page.type('#user_login', 'master');
-    await page.type('#user_password', '123456');
+    await page.type('#user_login', $config.page.username);
+    await page.type('#user_password', $config.page.password);
 
     // Wait for suggest overlay to appear and click "show all results".
     const submit_btn = '#login_submit_btn';

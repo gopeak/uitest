@@ -1,0 +1,1 @@
+export default { headless: false, defaultViewport: { width: 1440, height: 900 } }
