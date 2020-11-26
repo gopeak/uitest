@@ -1,13 +1,10 @@
 import config from '../config/index';
 const root = config.base_url;
+const passportRoot = config.base_url + '/passport/';
 
 let routes = {
     public: {
-        index:root,
-        register: `${root}/register`,
-        login: `${root}/login`,
-        find_password:`${root}/passport/find_password`,
-        noMatch: `${root}/asdf`,
+        index: root
     },
     private: {
         dashboard: `${root}/dashboard`,
@@ -18,6 +15,12 @@ let routes = {
     admin: {
         info: `${root}/admin/main`,
     },
+    index: root,
+    passport: {
+        login: `${passportRoot}/login`,
+        register: `${passportRoot}/login`,
+        find_password: `${passportRoot}/find_password`,
+    }
 }
 
 export default routes
