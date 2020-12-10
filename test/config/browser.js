@@ -1,1 +1,7 @@
-export default { headless: false, defaultViewport: { width: 1440, height: 900 } }
+export default {
+    headless: false,
+    defaultViewport: {
+        width: 1660,
+        height: 900
+    }
+}

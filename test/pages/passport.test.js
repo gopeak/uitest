@@ -92,4 +92,36 @@ describe('首页', () => {
         }
         await browser.close();
     })
+
+    test('#INDEX-2-搜索', async () => {
+        await signIn()
+        let $rows = ".search-result-row a";
+        await page.waitForSelector('#search')
+        await page.type('#search', "");
+        await page.keyboard.press('Enter');
+        await page.waitForSelector($rows);
+        await page.click($rows);
+        await browser.close();
+    })
+})
+
+describe('用户', () => {
+    test('#USER-1-个人资料页', async () => {
+        await signIn()
+        let avatar = await page.waitForSelector('.header-user-dropdown-toggle');
+        let link = await page.waitForSelector('.profile-link');
+        await avatar.click()
+        await link.click()
+        await page.waitForSelector(".avatar-holder");
+        await page.waitFor(1000);
+        const times = await page.$$eval(".js-timeago", items => {
+            return items.map(item => item.innerText)
+        })
+
+        if (times.length) {
+            await browser.close();
+        } else {
+            throw new Error("数据为空")
+        }
+    })
 })
