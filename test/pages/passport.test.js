@@ -1,20 +1,12 @@
 import faker from 'faker';
 import puppeteer from 'puppeteer';
-const yaml = require('js-yaml');
-const fs = require('fs');
-const path = require("path");
+import loadYaml from '../config/load-yaml';
 
 import routes from '../routes';
 import $browser from '../config/browser';
 import $config from '../config/index';
-let doc = null;
 
-try {
-    doc = yaml.safeLoad(fs.readFileSync(path.resolve(__dirname, '../../') + '/config.test.yml', 'utf8'));
-    console.log(doc);
-} catch (e) {
-    console.log(e);
-}
+console.log(loadYaml())
 
 let browser = null;
 let page = null;
