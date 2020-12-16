@@ -30,10 +30,10 @@ session:
 
 database:
   default:
-    host: '139.9.49.224'
+    host: 'localhost'
     port: 3306
-    user: 'dev_user'
-    password: 'Masterlab@123'
+    user: 'root'
+    password: ''
     db_name: 'masterlab_dev'
     charset: 'utf8'
     timeout: 10

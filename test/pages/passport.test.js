@@ -1,12 +1,14 @@
 import faker from 'faker';
 import puppeteer from 'puppeteer';
-import loadYaml from '../config/load-yaml';
+
 
 import routes from '../routes';
 import $browser from '../config/browser';
 import $config from '../config/index';
 
-console.log(loadYaml())
+import UserModel from '../models/user'
+
+
 
 let browser = null;
 let page = null;
@@ -38,6 +40,11 @@ const signIn = async remember => {
 describe('入口', () => {
 
     test('#PASSPORT-1-入口页面', async () => {
+
+        // 通过email获取验证码
+        let verifyCode = await UserModel.queryVerificationCode('19018891771@masterlab.org')
+        console.log(verifyCode)
+
         await page.goto(routes.index)
         await page.waitForSelector($signInSubmit)
         await page.waitForSelector($signInUsername)
